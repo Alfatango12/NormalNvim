@@ -864,8 +864,9 @@ return {
         desc = "Auto generate C/C++ tags",
         callback = function()
           local is_c = vim.bo.filetype == "c" or vim.bo.filetype == "cpp"
-          if is_c then vim.g.gutentags_enabled = 1
-          else vim.g.gutentags_enabled = 0 end
+          local file_exists = vim.fn.filereadable(vim.fn.expand "%") == 1
+          if is_c and file_exists then vim.b.gutentags_enabled = 1
+          else vim.b.gutentags_enabled = 0 end
         end,
       })
     end,
