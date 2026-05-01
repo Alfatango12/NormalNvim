@@ -32,7 +32,6 @@
 --       -> tests                              [tests]
 --       -> nvim-ufo
 --       -> code documentation                 [docs]
---       -> ask chatgpt                        [neural]
 --       -> hop.nvim
 --       -> mason-lspconfig.nvim               [lsp]
 
@@ -1294,14 +1293,6 @@ if is_available("markdown-preview.nvim") or is_available("markmap.nvim") or is_a
       desc = "Open documentation",
     }
   end
-end
-
--- [neural] -----------------------------------------------------------------
-if is_available("neural") or is_available("copilot") then
-  maps.n["<leader>a"] = {
-    function() require("neural").prompt() end,
-    desc = "Ask chatgpt",
-  }
 end
 
 -- hop.nvim ----------------------------------------------------------------
